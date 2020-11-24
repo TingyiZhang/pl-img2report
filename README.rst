@@ -13,13 +13,13 @@ pl-img2report
 Abstract
 --------
 
-An app to ...
+An app to generate brain volume text report.
 
 
 Description
 -----------
 
-``img2report`` is a ChRIS-based application that...
+``img2report`` is a ChRIS-based application that convert brain PNG images to volume text report. It first convert image's pixel value to the real label id. And use FreeSurfer LUT to generate a text report in HTML format. This app is for docking the output of `pl-mriunet <https://github.com/TingyiZhang/pl-mriunet_ser>`_ (prediction images).
 
 
 Usage
@@ -39,36 +39,6 @@ Usage
 Arguments
 ~~~~~~~~~
 
-.. code::
-
-    [-h] [--help]
-    If specified, show help message and exit.
-    
-    [--json]
-    If specified, show json representation of app and exit.
-    
-    [--man]
-    If specified, print (this) man page and exit.
-
-    [--meta]
-    If specified, print plugin meta data and exit.
-    
-    [--savejson <DIR>] 
-    If specified, save json representation file to DIR and exit. 
-    
-    [-v <level>] [--verbosity <level>]
-    Verbosity level for app. Not used currently.
-    
-    [--version]
-    If specified, print version number and exit. 
-
-
-Getting inline help is:
-
-.. code:: bash
-
-    docker run --rm fnndsc/pl-img2report img2report --man
-
 Run
 ~~~
 
@@ -77,11 +47,13 @@ You need you need to specify input and output directories using the `-v` flag to
 
 .. code:: bash
 
-    docker run --rm -u $(id -u)                             \
-        -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
-        fnndsc/pl-img2report img2report                        \
-        /incoming /outgoing
+    docker build -t img2report .
 
+.. code:: bash
+
+    docker run --rm -ti -v $(pwd)/<intput dir>:/incoming -v $(pwd)/<output dir>:/outgoing                       \
+        img2report img2report.py                                    \
+        /incoming /outgoing
 
 Development
 -----------
@@ -90,13 +62,13 @@ Build the Docker container:
 
 .. code:: bash
 
-    docker build -t local/pl-img2report .
+    docker build -t img2report .
 
 Examples
 --------
 
-Put some examples here!
+.. code:: bash
 
-
-.. image:: https://raw.githubusercontent.com/FNNDSC/cookiecutter-chrisapp/master/doc/assets/badge/light.png
-    :target: https://chrisstore.co
+    docker run --rm -ti -v $(pwd)/<intput dir>:/incoming -v $(pwd)/<output dir>:/outgoing                       \
+        img2report img2report.py                                    \
+        /incoming /outgoing
