@@ -19,7 +19,7 @@ An app to generate brain volume text report.
 Description
 -----------
 
-``img2report`` is a ChRIS-based application that convert brain PNG images to volume text report. It first convert image's pixel value to the real label id. And use FreeSurfer LUT to generate a text report in HTML format. This app is for docking the output of `pl-mriunet <https://github.com/TingyiZhang/pl-mriunet_ser>`_ (prediction images).
+``img2report`` is a ChRIS-based application that convert brain PNG images to volume text report. It first convert image's pixel value to the real label id. And use FreeSurfer LUT to generate a text report in HTML format. This app is for docking the output of `pl-mriunet_ser <https://github.com/TingyiZhang/pl-mriunet_ser>`_ or `pl-mricnn <https://github.com/FNNDSC/pl-mricnn>`_(prediction images).
 
 
 Usage
